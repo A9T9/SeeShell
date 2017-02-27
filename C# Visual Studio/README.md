@@ -1,4 +1,4 @@
-# Kantu C# API Demo 
+# Kantu C# API Demo
 
 Visual Studio demo for runtime loading of the Kantu COM library. 
 
