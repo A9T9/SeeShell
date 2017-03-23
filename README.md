@@ -7,16 +7,19 @@ API:  https://kantu.io/docs#api
 
 FAQ: https://kantu.io/docs#faq
 
-Kantu separates the linear website flow logic (the screenshot macros) and the programming/scripting logic with this Scripting API. So for tasks like condidtional statements, use the API Scripting Interface. The PLAY command always returns detailed status and error information, and use can use this to base your IF/THEN/ELSE decisions on:
+Kantu separates the linear website flow logic (the screenshot scripts) and the programming/scripting logic with this Scripting API. So for tasks like condidtional statements, use the API Scripting Interface. The PLAY command always returns detailed status and error information, and use can use this to base your IF/THEN/ELSE decisions on:
 
-IntegerReturnValue = objKantu.Play ("Script1")
+~~~~
+IntegerReturnValue = objKantu.Play ("KantuMacro1")
+
 if IntegerReturnValue = 1 then
-'Do something
-MsgBox "OK!"
+  'Do something
+  MsgBox "OK!"
 else
-'Do something else
-IntegerReturnValue = objKantu.Play ("Script2")
+  'error, do something else, like running another Kantu macro.
+  IntegerReturnValue = objKantu.Play ("KantuMacro2")
 end if
+~~~~
 
 Technically, the API is implemented as a Windows COM interface. So while this example uses the VBS/Visual Basic syntax,  you can use the Kantu COM object from any programming or scripting language on Windows.
 
