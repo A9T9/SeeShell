@@ -1,7 +1,7 @@
 #
 #
 # Powershell Demo Script for the Kantu API (Implemented as COM Object)
-# Script version: V1.0, 2016-12-05 
+# Script version: V1.1, 2017-04-13 
 #
 #
 
@@ -20,7 +20,7 @@ $comObj.open(10)
 
 $comObj.Echo("This is a message from Powershell")
 
-$i = $comObj.Play("Demo-Automate-Forms.xkts")
+$i = $comObj.Play("Demo-Automate-Forms.kmacro")
 
 [System.Windows.Forms.MessageBox]::Show($i)
 [System.Windows.Forms.MessageBox]::Show($comObj.GetLastError())

@@ -1,7 +1,7 @@
 '
 '
 ' VBS Demo Script for the Kantu API (Implemented as COM Object)
-' Script version: V1.0, 2016-12-05 
+' Script version: V1.1, 2017-04-12 
 '
 '
 option Explicit
@@ -17,19 +17,15 @@ if i < 0 then msgbox ("Open Kantu - Error: "+ cstr(i)+ " Text: " +myKantu.getLas
 
 i = myKantu.echo ("Hello from the VBS script")
 
-'By default, Kantu looks for the xkts script in the /script folder
-'You can also use full path, like myKantu.play("c:\my-files\test.xkts") 
+'By default, Kantu looks for the Kantu-macro (kmacro)  in the /macros folder
+'You can also use full path, like myKantu.play("c:\my-files\test.kmacro") 
 
-i = myKantu.play("Demo-Automate-Forms.xkts")
-if i < 0 then  msgbox ("Script Replay Error: "+ cstr(i)+ " Text: " +myKantu.getLastError())		
-
-i = myKantu.echo ("He2222222222")
-i = myKantu.play("Demo-Automate-Forms.xkts")
+i = myKantu.play("Demo-Automate-Forms.kmacro")
 if i < 0 then  msgbox ("Script Replay Error: "+ cstr(i)+ " Text: " +myKantu.getLastError())		
 
 
 
-msgbox "Click OK to close the Kantu Browser"
+msgbox "Done - Click OK to close the Kantu Browser"
 i = myKantu.close
 
 WScript.Quit(i)

@@ -3,7 +3,7 @@
 ' 
 ' This script runs all demo scripts and logs the result
 '
-' Script version: V1.20, 2016-12-19 
+' Script version: V1.50, 2017-05-05 
 '
 
 
@@ -38,14 +38,20 @@ end if
 
 'List of Test Scripts
 Set objList = CreateObject("System.Collections.ArrayList")
-objList.Add "Demo-Automate-Forms.xkts"
-objList.Add "Demo-Selectbox.xkts"
-objList.Add "Demo-ITA-Flight-Search.xkts"
-objList.Add "Demo-ContactUs.xkts"
-objList.Add "Demo-Mouse-Draw.xkts"
-objList.Add "Demo-Variables.xkts"
-objList.Add "Demo-Download.xkts"
-objList.Add "Demo-Upload.xkts"
+objList.Add "Demo-Automate-Forms.kmacro"
+objList.Add "Demo-ITA-Flight-Search.kmacro"
+objList.Add "Demo-WebScraping.kmacro"
+objList.Add "Demo-Variables.kmacro"
+objList.Add "Demo-Download.kmacro"
+objList.Add "Demo-Upload.kmacro"
+objList.Add "Demo-PDF-Extract.kmacro"
+objList.Add "Demo-Mouse-Draw.kmacro"
+objList.Add "Demo-Javascript.kmacro"
+objList.Add "Demo-Variables.kmacro"
+objList.Add "Demo-Scroll.kmacro"
+' For Flash to work, install Flash: https://a9t9.com/kantu/flash#install
+objList.Add "Demo-Flash.kmacro"
+
 
 'Run the tests!
 Dim testnumber

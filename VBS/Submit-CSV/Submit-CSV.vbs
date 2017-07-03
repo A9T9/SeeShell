@@ -1,7 +1,7 @@
 '
 '
 ' VBS Demo Script for the Kantu API and Variables
-' Script version: V1.0, 2016-12-05 
+' Script version: V1.1, 2017-04-05 
 '
 '
 
@@ -33,7 +33,7 @@ Do Until objFile.AtEndOfStream
 	i = objKantu.setVariable ("last", arrFields (1))
 	i = objKantu.setVariable ("email", arrFields (2))
 
-	i = objKantu.play("Demo-Variables.xkts")
+	i = objKantu.play("Demo-Variables.kmacro")
 	if i < 0 then msgbox ("Play error: " + cstr (i) +" " +objKantu.getLastError())		
 Loop
 
