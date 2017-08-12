@@ -20,7 +20,7 @@ i = myKantu.echo ("Hello from the VBS script")
 'By default, Kantu looks for the Kantu-macro (kmacro)  in the /macros folder
 'You can also use full path, like myKantu.play("c:\my-files\test.kmacro") 
 
-i = myKantu.play("Demo-Automate-Forms.kmacro")
+i = myKantu.play("Demo-Automate-Forms")
 if i < 0 then  msgbox ("Script Replay Error: "+ cstr(i)+ " Text: " +myKantu.getLastError())		
 
 
