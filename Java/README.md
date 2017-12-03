@@ -1,10 +1,15 @@
-<h1>Kantu API Demo for Java</h1>
+<h1>Java - Kantu API Demo App</h1>
+
+The test app connects to the Kantu API COM interface to start Kantu, run a macro,
+log the return code and then close Kantu. 
+
+API documentation: https://a9t9.com/kantu/docs#api
 
 ## Prerequisites
 - Kantu PRO or Kantu PRO Trial - https://a9t9.com/download
 - JDK 1.8
 - JAVA_HOME environment variable must be set and point to JDK folder, 
-  for example C:\Program Files\Java\jdk1.8.0_152
+  (for example C:\Program Files\Java\jdk1.8.0_152)
 
 
 ## How to build
