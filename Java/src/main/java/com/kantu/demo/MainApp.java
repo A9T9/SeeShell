@@ -10,16 +10,17 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
+ * Kantu API Java Demo, V1.1, 2017/12/6
  * (c) a9t9 tech support
  * License: Free to use for Kantu PRO users
  */
+
 public class MainApp extends JFrame {
     private final StringBuilder logBuffer = new StringBuilder();
     public JPanel mainPanel;
     private JButton btnRunKantu;
     private JTextField scriptField;
     private JTextArea logsArea;
-    private JPanel logsPanel;
 
     private MainApp() {
         setTitle("Kantu API - Java Demo V1.0");
@@ -92,7 +93,7 @@ public class MainApp extends JFrame {
      */
     private void $$$setupUI$$$() {
         mainPanel = new JPanel();
-        mainPanel.setLayout(new GridLayoutManager(2, 3, new Insets(15, 15, 15, 15), -1, -1));
+        mainPanel.setLayout(new GridLayoutManager(3, 3, new Insets(15, 15, 15, 15), -1, -1));
         mainPanel.setMinimumSize(new Dimension(500, 400));
         mainPanel.setPreferredSize(new Dimension(500, 400));
         btnRunKantu = new JButton();
@@ -104,20 +105,24 @@ public class MainApp extends JFrame {
         mainPanel.add(label1, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         scriptField = new JTextField();
         scriptField.setText("Demo-Automate-Forms");
-        scriptField.setToolTipText("File name without extension. File must be present in '<Current User>\\Documents\\Kantu\\macros'");
+        scriptField.setToolTipText("File name without extension. File must be present in '<Current User>\\Documents\\Kantu\\macros' folder");
         mainPanel.add(scriptField, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        logsPanel = new JPanel();
-        logsPanel.setLayout(new GridLayoutManager(3, 2, new Insets(15, 15, 15, 15), -1, -1));
-        mainPanel.add(logsPanel, new GridConstraints(1, 0, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        final Spacer spacer1 = new Spacer();
-        logsPanel.add(spacer1, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        final JScrollPane scrollPane1 = new JScrollPane();
+        mainPanel.add(scrollPane1, new GridConstraints(2, 0, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         logsArea = new JTextArea();
         logsArea.setEditable(false);
+        logsArea.setEnabled(true);
         logsArea.setLineWrap(true);
-        logsPanel.add(logsArea, new GridConstraints(2, 0, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
+        logsArea.setOpaque(true);
+        scrollPane1.setViewportView(logsArea);
+        final JPanel panel1 = new JPanel();
+        panel1.setLayout(new GridLayoutManager(1, 2, new Insets(5, 0, 5, 0), -1, -1));
+        mainPanel.add(panel1, new GridConstraints(1, 0, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         final JLabel label2 = new JLabel();
         label2.setText("Log");
-        logsPanel.add(label2, new GridConstraints(0, 0, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        panel1.add(label2, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final Spacer spacer1 = new Spacer();
+        panel1.add(spacer1, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
     }
 
     /**
