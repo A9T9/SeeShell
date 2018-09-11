@@ -6,12 +6,12 @@
 # 4. Use the EXTRACT command for Zonal OCR
 # 5. Save extracted data to CSV file
 #
-# To run, copy the "ZonalOCR.kmacro" file to the Kantu macro folder
+# To run, copy the "ZonalOCR.see" file to the SeeShell macro folder
 # Typically this folder is at
-# C:\Users\<your user name>\Documents\Kantu\macros 
-# Once, there, the macro also shows up in the Kantu Browser sidebar.
+# C:\Users\<your user name>\Documents\SeeShell.Browser\macros 
+# Once there, the macro also shows up in the SeeShell Browser sidebar.
 #
-# Script version: V1.2, 2017-08-12
+# Script version: V1.3, 2018-08-12
 #
 
 
@@ -44,20 +44,20 @@ $line = "hjkjh"
 
 $line | Add-Content $pathoutputerror
 
-#Create Kantu Object
-$kantu = new-object -ComObject Kantu
+#Create SeeShell Object
+$SeeShell = new-object -ComObject SeeShell.Browser
 
-#Open Kantu Browser
-$i = $kantu.open(1)  #1 = true = open NEW instance
-#$i = $kantu.open(0)  0 = false = connect to already running instance of Kantu
+#Open SeeShell Browser
+$i = $SeeShell.open(1)  #1 = true = open NEW instance
+#$i = $SeeShell.open(0)  0 = false = connect to already running instance of SeeShell
 
 foreach ($name in $names) {
 
     Write-Host "START " $name "---------------------" 
 
-    $i = $kantu.echo("Name="+$name)
-    $i = $kantu.setVariable("name", $name)
-    $i = $kantu.play("zonalocr")
+    $i = $SeeShell.echo("Name="+$name)
+    $i = $SeeShell.setVariable("name", $name)
+    $i = $SeeShell.play("zonalocr")
 
     #Write data to file
 
@@ -66,7 +66,7 @@ foreach ($name in $names) {
         Write-Host $name "=OK" 
 
         #we have data
-        $allData = $kantu.GetExtractImageData()
+        $allData = $SeeShell.GetExtractImageData()
  #      Write-Host $name " DATA => " $allData 
 
          #Convert to CSV format
@@ -80,12 +80,12 @@ foreach ($name in $names) {
     else
     {
         #log the misses in 2nd file
-        Write-Host "Error: " $name  "=> Return value: " $i "Error text: " $kantu.GetLastError()
+        Write-Host "Error: " $name  "=> Return value: " $i "Error text: " $SeeShell.GetLastError()
         $line = $name 
         $line | Add-Content $pathoutputerror
     }
 }
 
-$i = $kantu.echo("Done!")
-#Close the Kantu Browser
-$i = $kantu.close();
+$i = $SeeShell.echo("Done!")
+#Close the SeeShell Browser
+$i = $SeeShell.close();

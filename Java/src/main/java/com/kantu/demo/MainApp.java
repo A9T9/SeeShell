@@ -1,4 +1,4 @@
-package com.kantu.demo;
+package com.SeeShell.demo;
 
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
@@ -10,52 +10,52 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Kantu API Java Demo, V1.1, 2017/12/6
+ * SeeShell API Java Demo, V1.2, 2018/8/28
  * (c) a9t9 tech support
- * License: Free to use for Kantu PRO users
+ * License: Free to use for SeeShell PRO users
  */
 
 public class MainApp extends JFrame {
     private final StringBuilder logBuffer = new StringBuilder();
     public JPanel mainPanel;
-    private JButton btnRunKantu;
+    private JButton btnRunSeeShell;
     private JTextField scriptField;
     private JTextArea logsArea;
 
     private MainApp() {
-        setTitle("Kantu API - Java Demo V1.0");
+        setTitle("SeeShell API - Java Demo V1.2");
         setContentPane(mainPanel);
         setResizable(false);
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        btnRunKantu.addActionListener(e -> {
+        btnRunSeeShell.addActionListener(e -> {
             try {
-                log("Starting Kantu Browser");
+                log("Starting SeeShell Browser");
                 String myScript = scriptField.getText();
-                ActiveXComponent kantu = new ActiveXComponent("Kantu");
+                ActiveXComponent SeeShell = new ActiveXComponent("SeeShell");
 
-                //open the Kantu Browser. With kantu.open(false) you can connect to an already open instance
-                Variant result = kantu.invoke("open", new Variant(true));
+                //open the SeeShell Browser. With SeeShell.open(false) you can connect to an already open instance
+                Variant result = SeeShell.invoke("open", new Variant(true));
                 if (result.getInt() < 0) {
-                    log("Kantu Open Error: " + result + " Text: " + getLastError(kantu));
+                    log("SeeShell Open Error: " + result + " Text: " + getLastError(SeeShell));
                 }
 
-                kantu.invoke("echo", new Variant("Hello from the Java app: " + myScript));
+                SeeShell.invoke("echo", new Variant("Hello from the Java app: " + myScript));
                 log("Start Script " + myScript);
 
-                result = kantu.invoke("play", new Variant(myScript));
+                result = SeeShell.invoke("play", new Variant(myScript));
                 if (result.getInt() < 0) {
-                    log("Script Replay Error: " + result + " Text: " + getLastError(kantu));
+                    log("Script Replay Error: " + result + " Text: " + getLastError(SeeShell));
                 } else {
                     log("Script completed - OK");
                 }
 
-                kantu.invoke("echo", new Variant("Done"));
+                SeeShell.invoke("echo", new Variant("Done"));
 
-                log("Closing Kantu Browser ...");
-                kantu.invoke("close");
+                log("Closing SeeShell Browser ...");
+                SeeShell.invoke("close");
             } catch (Exception ex) {
                 log("An exception occurred " + ex.getMessage());
                 ex.printStackTrace();
@@ -63,8 +63,8 @@ public class MainApp extends JFrame {
         });
     }
 
-    private String getLastError(ActiveXComponent kantu) {
-        return kantu.invoke("getLastError").toString();
+    private String getLastError(ActiveXComponent SeeShell) {
+        return SeeShell.invoke("getLastError").toString();
     }
 
     private void log(String message) {
@@ -96,16 +96,16 @@ public class MainApp extends JFrame {
         mainPanel.setLayout(new GridLayoutManager(3, 3, new Insets(15, 15, 15, 15), -1, -1));
         mainPanel.setMinimumSize(new Dimension(500, 400));
         mainPanel.setPreferredSize(new Dimension(500, 400));
-        btnRunKantu = new JButton();
-        btnRunKantu.setActionCommand("");
-        btnRunKantu.setText("Run Kantu");
-        mainPanel.add(btnRunKantu, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        btnRunSeeShell = new JButton();
+        btnRunSeeShell.setActionCommand("");
+        btnRunSeeShell.setText("Run SeeShell");
+        mainPanel.add(btnRunSeeShell, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label1 = new JLabel();
         label1.setText("Script:");
         mainPanel.add(label1, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         scriptField = new JTextField();
         scriptField.setText("Demo-Automate-Forms");
-        scriptField.setToolTipText("File name without extension. File must be present in '<Current User>\\Documents\\Kantu\\macros' folder");
+        scriptField.setToolTipText("File name without extension. File must be present in '<Current User>\\Documents\\SeeShell\\macros' folder");
         mainPanel.add(scriptField, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         final JScrollPane scrollPane1 = new JScrollPane();
         mainPanel.add(scrollPane1, new GridConstraints(2, 0, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));

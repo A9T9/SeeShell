@@ -1,37 +1,31 @@
 '
 'Web Scraping Demo Script
 '
-'V1.1 2017/4/13
-'V2.0 2017/5/23 - Adapted for new extract features
-'
-'This script starts Kantu, and then displays the extract currency conversion rate data in a message box
-'and then saves it in a CSV formatted text file
-'
 
 option Explicit
 
-dim objKantu, i, s, allData, data, line
+dim myBrowser, i, s, allData, data, line
 
-set objKantu = CreateObject ("kantu")
-If objKantu Is Nothing Then msgbox ("API not installed")
+set myBrowser = CreateObject ("seeshell.browser")
+If myBrowser Is Nothing Then msgbox ("API not installed")
 
 
-i = objKantu.open(true)
-if i < 0 then msgbox ("Start error: " + cstr(i) +" " +objKantu.getLastError())
+i = myBrowser.open(true)
+if i < 0 then msgbox ("Start error: " + cstr(i) +" " +myBrowser.getLastError())
 
-i = objKantu.echo ("Processing...")
-i = objKantu.Play("demo-webscraping.kmacro")
+i = myBrowser.echo ("Processing...")
+i = myBrowser.Play("demo-webscraping")
 
 if i < 0 then
-    msgbox "Error playing macro: " + cstr(i) + vbCrLf + vbCrLf +"Text: "+objKantu.getLastError()
+    msgbox "Error playing macro: " + cstr(i) + vbCrLf + vbCrLf +"Text: "+myBrowser.getLastError()
     'Stop here
-    i = objKantu.close()
+    i = myBrowser.close()
     WScript.Quit(i)
  end if 
   
-i = objKantu.echo ("Done!")
+i = myBrowser.echo ("Done!")
 'Display all data 
-allData = objKantu.GetExtractImageData()
+allData = myBrowser.GetExtractImageData()
 
 s = "Extraction done - this is how the raw returned data looks like:"+vbCrLf+vbCrLf
 s = s+ allData+vbCrLf+vbCrLf
@@ -85,7 +79,7 @@ Set fso = Nothing
 
 	
 	
-msgbox ("Data saved. Press OK to close Kantu")
-i = objKantu.close()
+msgbox ("Data saved. Press OK to close the SeeShell Browser.")
+i = myBrowser.close()
 
 WScript.Quit(i)

@@ -1,21 +1,21 @@
 #
-# This script sends the URL to use to the Kantu Browser
+# This script sends the URL to use to the SeeShell Browser
 # by using setVariable
 #
 # Inside the macro we have: OPEN {myURL}
 
 
-Write-Host "Hello Kantu User!"
+Write-Host "Hello SeeShell User!"
 
 $url = "https://a9t9.com"
 
-$comObj = new-object -ComObject Kantu
+$comObj = new-object -ComObject SeeShell.Browser
 
 [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms") 
-[System.Windows.Forms.MessageBox]::Show("Click OK to start Kantu")
+[System.Windows.Forms.MessageBox]::Show("Click OK to start SeeShell")
 
-#30 in open (30) is the max time to wait for Kantu to start.
-#If Kantu would take longer (e. g. very high CPU load) then the open command returns a timeout error
+#30 in open (30) is the max time to wait for SeeShell to start.
+#If SeeShell would take longer (e. g. very high CPU load) then the open command returns a timeout error
 
 $comObj.open(30)
 

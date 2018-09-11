@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Kantu.Form.Properties {
+namespace SeeShell.Form.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

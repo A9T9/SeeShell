@@ -1,15 +1,12 @@
 '
-' Self-test for the Kantu API and Kantu Browser replay
+' Self-test for Browser replay
 ' 
 ' This script runs all demo scripts and logs the result
 '
-' Script version: V1.50, 2017-05-05 
-'
-
 
 option Explicit
 
-Dim objFileSystem, objFile, myKantu
+Dim objFileSystem, objFile, myBrowser
 Dim strOutputFile, i
 dim objList, element, hasError
 
@@ -24,33 +21,35 @@ msgbox ("Click OK to start. This test will take a few minutes.")
 
 objFile.WriteLine("Self-Test started at " + cstr (now))
 
-set myKantu = CreateObject ("Kantu")
-if  myKantu Is Nothing then 
-	objFile.WriteLine("CreateObject ERROR: " + cstr(i) + " Text: " + myKantu.getLastError())
+set myBrowser = CreateObject ("SeeShell.Browser")
+if  myBrowser Is Nothing then 
+	objFile.WriteLine("CreateObject ERROR: " + cstr(i) + " Text: " + myBrowser.getLastError())
     hasError = true
 end if 
 
-i = myKantu.open(true)
+i = myBrowser.open(true)
 if  i < 0 then 
-	objFile.WriteLine("Open ERROR: " + cstr(i) + " Text: " + myKantu.getLastError())
+	objFile.WriteLine("Open ERROR: " + cstr(i) + " Text: " + myBrowser.getLastError())
     hasError = true
 end if 
 
 'List of Test Scripts
 Set objList = CreateObject("System.Collections.ArrayList")
-objList.Add "Demo-Automate-Forms.kmacro"
-objList.Add "Demo-ITA-Flight-Search.kmacro"
-objList.Add "Demo-WebScraping.kmacro"
-objList.Add "Demo-Variables.kmacro"
-objList.Add "Demo-Download.kmacro"
-objList.Add "Demo-Upload.kmacro"
-objList.Add "Demo-PDF-Extract.kmacro"
-objList.Add "Demo-Mouse-Draw.kmacro"
-objList.Add "Demo-Javascript.kmacro"
-objList.Add "Demo-Variables.kmacro"
-objList.Add "Demo-Scroll.kmacro"
+
+objList.Add "Demo-Automate-Forms"
+objList.Add "Demo-ITA-Flight-Search"
+objList.Add "Demo-WebScraping"
+objList.Add "Demo-Variables"
+objList.Add "Demo-Download"
+objList.Add "Demo-Upload"
+objList.Add "Demo-PDF-Extract"
+objList.Add "Demo-Mouse-Draw"
+objList.Add "Demo-Variables"
+objList.Add "Demo-Scroll"
+objList.Add "Demo-Javascript"
+objList.Add "Demo-ClickRelative"
 ' For Flash to work, install Flash: https://a9t9.com/kantu/flash#install
-objList.Add "Demo-Flash.kmacro"
+objList.Add "Demo-Flash"
 
 
 'Run the tests!
@@ -58,23 +57,23 @@ Dim testnumber
 testnumber = 1 
 For Each element In objList
 
-  i = myKantu.echo ("Currently testing: " + element + " (" + cstr(testnumber) +" of " + cstr(objList.Count)+")")
-  i = myKantu.Play (cstr(element))  
+  i = myBrowser.echo ("Currently testing: " + element + " (" + cstr(testnumber) +" of " + cstr(objList.Count)+")")
+  i = myBrowser.Play (cstr(element))  
   
   if i >= 0 then
    objFile.WriteLine("Play OK: " + element)
   else
-    objFile.WriteLine("Play ERROR, Script: " + element + " Error code: "  + cstr(i) + " Text: "+myKantu.getLastError())
+    objFile.WriteLine("Play ERROR, Script: " + element + " Error code: "  + cstr(i) + " Text: "+myBrowser.getLastError())
 	hasError = true
   end if 
   testnumber = testnumber+1
  
 Next
 
-'Close Kantu
-i = myKantu.close
+'Close 
+i = myBrowser.close
 if  i < 0 then 
-	objFile.WriteLine("Open ERROR: " + cstr(i) + " Text: " + myKantu.getLastError())
+	objFile.WriteLine("Open ERROR: " + cstr(i) + " Text: " + myBrowser.getLastError())
     hasError = true
 end if 
 
