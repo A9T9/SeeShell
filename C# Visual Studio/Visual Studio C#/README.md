@@ -1,6 +1,6 @@
 # SeeShell C# API Demo
 
-Visual Studio demo for runtime loading of the SeeShell COM library. Of course, this demo can be used for the "SeeShell" object (= SeeShell Desktop Automation) and the "SeeShell.Browser" object of the SeeShell Chromium Browser for Web Automation. 
+Visual Studio demo app for runtime loading of the SeeShell COM library. As with any API demo, this app can be used for testing the  "SeeShell" object of SeeShell Desktop Automation or the "SeeShell.Browser" object of the SeeShell Chromium Browser for Web Automation. 
 
 Late-binding to COM objects as in this demo means that you do *not*  have to add a reference to the COM library to your .NET project. 
 
