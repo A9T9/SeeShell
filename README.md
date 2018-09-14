@@ -6,7 +6,7 @@ Note that some "ready to run" VBS and Powershell sample scripts are automaticall
 If you deleted these files, or simply want to update them to the latest version, you can download and re-run a demo file installer. It does not include SeeShell, but only updates demo macros (in the /macros folders) and the demo VBS and Powershell scripts (in the /API folder)
 
 -  Desktop automation: [Download SeeShellDesktopDemoFiles-Setup.exe](http://download.a9t9.com/SeeShell/SeeShellDesktopDemoFiles-Setup.exe)
--  Web Automation: [SeeShellBrowserDemoFiles-Setup.exe](http://download.a9t9.com/SeeShell/SeeShellBrowserDemoFiles-Setup.exe)
+-  Web Automation: [Download SeeShellBrowserDemoFiles-Setup.exe](http://download.a9t9.com/SeeShell/SeeShellBrowserDemoFiles-Setup.exe)
 
 Documentation: https://a9t9.com/SeeShell/docs
 
