@@ -21,7 +21,7 @@ $comObj.open(30)
 
     $comObj.Echo("URL = " + $url)
 
-    $iret = $comObj.setVariable("myURL", $url ) 
+    $iret = $comObj.setVariable("myurl", $url ) 
     $iret = $comObj.Play("open-URL", 300)
 
     #Check test return value
