@@ -3,8 +3,8 @@ Example code for working with the SeeShell API. The API is ideal for more comple
 
 Note that some "ready to run" VBS and Powershell sample scripts are automatically installed with SeeShell. You find them in the folder 
 
-- Desktop automation: C:\Users\[Your user name]\documents\SeeShell\API
-- Web automation: "C:\Users\[Your user name]\documents\SeeShell.Browser\API
+- Desktop automation: C:\Users\ [Your user name]  \documents\SeeShell\API
+- Web automation: "C:\Users\ [Your user name] \documents\SeeShell.Browser\API
 
 If you deleted these files, or simply want to update them to the latest version, you can download and re-run a demo file installer. It does not include SeeShell, but only updates the demo macros and the demo VBS and Powershell scripts.
 
