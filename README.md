@@ -14,7 +14,7 @@ API:  https://a9t9.com/SeeShell/docs#api
 
 FAQ: https://a9t9.com/SeeShell/docs#faq
 
-SeeShell separates the linear website flow logic (the screenshot scripts) and the programming/scripting logic with this Scripting API. So for tasks like conditional statements, use the API Scripting Interface. The PLAY command always returns detailed status and error information, and use can use this to base your IF/THEN/ELSE decisions on:
+**SeeShell separates the linear website flow logic (the screenshot scripts) and the programming/scripting logic with this Scripting API.** So for tasks like conditional statements, use the API Scripting Interface. The PLAY command always returns detailed status and error information, and use can use this to base your IF/THEN/ELSE decisions on:
 
 ~~~~
 IntegerReturnValue = objSeeShell.Play ("Macro1.see")
