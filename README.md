@@ -1,5 +1,12 @@
 # SeeShell
-Example code for working with the SeeShell API. The API is ideal for more complex automation tasks, when a "linear" macro is not sufficient. The API allows you to control all SeeShell functions from your favorite programming or scripting language. Note that some "ready to run" VBS and Powershell sample scripts are automatically installed with SeeShell. Youn find them in the folder "This PC"/documents/SeeShell/api
+Example code for working with the SeeShell API. The API is ideal for more complex automation tasks, when a "linear" macro is not sufficient. The API allows you to control all SeeShell functions from your favorite programming or scripting language. 
+
+Note that some "ready to run" VBS and Powershell sample scripts are automatically installed with SeeShell. Youn find them in the folder "This PC"/documents/SeeShell/api
+
+If you deleted these files, or simply want to update them to the latest version, you can download and re-run a demo file installer. It does not include SeeShell, but only updates demo macros (in the /macros folders) and the demo VBS and Powershell scripts (in the /API folder)
+
+-  Desktop automation: [Download SeeShellDesktopDemoFiles-Setup.exe](http://download.a9t9.com/SeeShell/SeeShellDesktopDemoFiles-Setup.exe)
+-  Web Automation: [SeeShellBrowserDemoFiles-Setup.exe](http://download.a9t9.com/SeeShell/SeeShellBrowserDemoFiles-Setup.exe)
 
 Documentation: https://a9t9.com/SeeShell/docs
 
