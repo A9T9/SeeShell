@@ -51,6 +51,7 @@ objList.Add "Demo-ClickRelative"
 objList.Add "Demo-ManyPlay-Part1"
 objList.Add "Demo-ManyPlay-Part2"
 objList.Add "Demo-ManyPlay-Part3"
+objList.Add "Demo-Tabs"
 ' For Flash to work, install Flash: https://a9t9.com/kantu/flash#install
 objList.Add "Demo-Flash"
 
@@ -61,7 +62,8 @@ testnumber = 1
 For Each element In objList
 
   i = myBrowser.echo ("Currently testing: " + element + " (" + cstr(testnumber) +" of " + cstr(objList.Count)+")")
-  i = myBrowser.Play (cstr(element))  
+  
+  i = myBrowser.Play (cstr(element), 180) 'Allow up to 180 seconds (3 minutes) macro run time, otherwise the long Demo-Mouse-Draw macro triggers a time out error 
   
   if i >= 0 then
    objFile.WriteLine("Play OK: " + element)
